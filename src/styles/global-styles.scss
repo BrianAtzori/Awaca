@@ -1,0 +1,16 @@
+/* --- TAILWIND --- */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* --- CSS IMPORTS --- */
+@import "./global-variables.scss";
+
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+}
