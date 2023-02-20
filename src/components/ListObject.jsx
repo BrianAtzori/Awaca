@@ -6,8 +6,9 @@ import "../styles/modules/list-object.module.scss"
 
 export default function ListObject({ content }) {
   return (
-    <div>
-      <p className='font-lato'>{content}</p>
+    <div className="flex gap-5 text m-5 bg-palette-color-light p-1 rounded-md items-center">
+      <img className="rounded-md" src="https://dummyimage.com/100x100/1d3773/fff" alt="benefit_of_meditation"></img>
+      <p className='font-lato text-lg text-[#0c4a6e]'>{content}</p>
     </div>
   );
 }

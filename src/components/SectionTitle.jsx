@@ -6,10 +6,10 @@ import "../styles/modules/section-title.module.scss"
 
 export default function SectionTitle({title,subTitle}) {
   return (
-    <div>
-        <h2 className='font-dosis'>{title}</h2>
+    <div className=''>
+        <h2 className=' text-[#0c4a6e] font-dosis font-bold bg-palette-color-medium pl-2 pr-2 rounded-md text-2xl my-2 '>{title}</h2>
         <div></div>
-        <h3 className='font-lato'>{subTitle}</h3>
+        <h3 className=' text-[#0c4a6e] font-lato underline decoration-[#0c4a6e] underline-offset-2 text-xl'>{subTitle}</h3>
     </div>
   )
 }
