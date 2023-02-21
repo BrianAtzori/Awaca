@@ -15,7 +15,9 @@ module.exports = {
       'palette-color-dark': '#73b3b2',
       'palette-color-medium': '#aecfd0',
       'palette-color-light': '#bed9dd',
-      'palette-color-lighter': '#deebec'
+      'palette-color-lighter': '#deebec',
+      'transparent': colors.transparent,
+      'red': colors.red,
     }
   },
   plugins: [],
