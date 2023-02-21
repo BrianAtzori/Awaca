@@ -1,11 +1,12 @@
 import React from "react";
 import { Fade } from "react-awesome-reveal";
 
-import SectionTitle from "./SectionTitle";
-import ListObject from "./ListObject";
+import SectionTitle from "./SectionTitle.tsx";
+import ListObject from "./ListObject.tsx";
+import LoginOrTry from "./LoginOrTry.tsx";
 
 import Styles from "../styles/modules/dialog.module.scss";
-import LoginOrTry from "./LoginOrTry.tsx";
+import dialogSlice from "../features/dialog/dialogSlice";
 
 //A simple flag in the state will determine if the dialog is needed and if needed in which version
 
@@ -13,9 +14,9 @@ export default function Dialog() {
   //Data should be loaded dynamically from the backend/cms
 
   const benefits: string[] = ["Benefit #1", "Benefit #2", "Benefit#3"];
-  const sectionTitle: string =
+  const sectionTitle: string = "Benefits of meditation";
+  const sectionSubTitle: string =
     "Why you should be growing awareness with Awaca?";
-  const sectionSubTitle: string = "Benefits of meditation:";
 
   return (
     <Fade direction="down" className="container  mx-auto px-3">
