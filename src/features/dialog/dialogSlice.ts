@@ -5,9 +5,9 @@ export const dialogSlice = createSlice({
     initialState: { value: true },
     reducers: {
         hideDialog: (state) => {
-            console.log(state.value)
+            // console.log(state.value)
             state.value = false
-            console.log(state.value)
+            // console.log(state.value)
         }
     }
 })
