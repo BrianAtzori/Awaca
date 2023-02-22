@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 
 import Dialog from "../components/Dialog.tsx";
+import Meditation from "../components/MeditationSection.tsx"
 
 //A simple flag in the state will determine if the dialog is needed and if needed in which version
 
@@ -10,6 +11,7 @@ export default function Hompage() {
   return (
     <>
       { showDialog && <Dialog></Dialog>}
+      { showDialog || <Meditation></Meditation>}
     </>
   );
 }
