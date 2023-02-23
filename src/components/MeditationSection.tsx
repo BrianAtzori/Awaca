@@ -23,8 +23,8 @@ export default function Meditation() {
     "“Distractions are everywhere. Notice what takes your attention, acknowledge it, and then let it go.”";
 
   return (
-    <section className=" container mx-auto flex flex-col p-10 gap-3">
-      <h1 className="text-[#0c4a6e] font-dosis font-bold text-lg bg-palette-color-medium pl-2 pr-2 rounded-md text-center"> Embrace Awareness with Awaca</h1>
+    <section className="container mx-auto flex flex-col p-10 md:w-11/12">
+      <h1 className="text-[#0c4a6e] font-dosis font-bold text-lg bg-palette-color-medium pl-2 pr-2 rounded-md text-center"> Embrace Awareness with Awaca, start with a nice quote:</h1>
       <Quote quote={quote}></Quote>
       <Timer></Timer>
       <Spotify></Spotify>
