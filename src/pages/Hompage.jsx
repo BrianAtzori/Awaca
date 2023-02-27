@@ -6,6 +6,7 @@ import Meditation from "../components/MeditationSection"
 
 //A simple flag in the state will determine if the dialog is needed and if needed in which version
 
+
 export default function Hompage() {
   const showDialog = useSelector((state) => state.dialog.value);
   return (

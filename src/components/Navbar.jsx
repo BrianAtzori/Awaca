@@ -19,11 +19,14 @@ export default function Navbar() {
         <div
           className={
             isOpen === true
-              ? "item-center absolute left-0 top-[8%] flex min-h-fit min-h-[60vh] w-full md:static"
+              ? "item-center absolute left-0 top-[11%] flex min-h-fit min-h-[60vh] w-full md:static"
               : "item-center absolute left-0 top-[-100%] flex min-h-fit min-h-[60vh] w-full md:static"
           }
         >
           <ul className="flex w-full flex-col gap-10 bg-palette-color-lighter p-4 text-[#0c4a6e] md:flex-row md:items-center md:gap-4">
+          <Link to={"/"}>
+              <li>HOME</li>
+            </Link>
             <Link to={"how-to-meditate"}>
               <li>HOW TO</li>
             </Link>

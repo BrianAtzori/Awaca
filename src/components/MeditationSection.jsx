@@ -10,6 +10,8 @@ import Footer from "./Footer";
 //Here i'll props/state i'll embed a spotify playlist
 //Here the movement of the mouse or the touch will trigger the end of the meditation -> So no pause?
 
+//A read from the "global state" will help to change the background of the homepage when the user is meditating, now is static
+
 //Logged users can:
 //- Track the time of the meditation
 //- Save the quote to their saved quotes
@@ -20,14 +22,17 @@ import Footer from "./Footer";
 //Bonus: First time? Read This: -> Dialog?
 
 export default function Meditation() {
-  const quote=
+  const quote =
     "“Distractions are everywhere. Notice what takes your attention, acknowledge it, and then let it go.”";
+
+    
 
   return (
     <>
-      <section className="container mx-auto flex flex-col p-10 md:w-11/12">
+      <section
+        className="container mx-auto flex flex-col p-10 md:w-11/12"
+      >
         <h1 className="rounded-md bg-palette-color-medium pl-2 pr-2 text-center font-dosis text-lg font-bold text-[#0c4a6e]">
-          {" "}
           Embrace Awareness with Awaca, start with a nice quote:
         </h1>
         <Quote quote={quote}></Quote>
