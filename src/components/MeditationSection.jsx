@@ -1,9 +1,9 @@
 import React from "react";
 
-import Quote from "./Quote.tsx";
-import Timer from "./Timer.tsx";
-import Spotify from "./Spotify.tsx";
-import Footer from "./Footer.tsx";
+import Quote from "./Quote";
+import Timer from "./Timer";
+import Spotify from "./Spotify";
+import Footer from "./Footer";
 
 //Here with props/state i'll have a dynimically generated quote from the CMS or from the API
 //Here with props/state i'll have a dynamically generated background image or video from the CMS
@@ -20,7 +20,7 @@ import Footer from "./Footer.tsx";
 //Bonus: First time? Read This: -> Dialog?
 
 export default function Meditation() {
-  const quote: string =
+  const quote=
     "“Distractions are everywhere. Notice what takes your attention, acknowledge it, and then let it go.”";
 
   return (

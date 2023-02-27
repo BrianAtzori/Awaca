@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import {hideDialog} from '../features/dialog/dialogSlice.ts'
+import {hideDialog} from '../features/dialog/dialogSlice'
 
 export default function LoginOrTry() {
 

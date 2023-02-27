@@ -1,8 +1,8 @@
 import React from "react";
 import { useSelector } from "react-redux";
 
-import Dialog from "../components/Dialog.tsx";
-import Meditation from "../components/MeditationSection.tsx"
+import Dialog from "../components/Dialog";
+import Meditation from "../components/MeditationSection"
 
 //A simple flag in the state will determine if the dialog is needed and if needed in which version
 

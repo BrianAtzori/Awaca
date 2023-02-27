@@ -3,8 +3,8 @@ import {Routes, Route} from "react-router-dom"
 
 
 
-import Navbar from './components/Navbar.tsx'
-import Homepage from "./pages/Hompage.tsx"
+import Navbar from './components/Navbar'
+import Homepage from "./pages/Hompage"
 
 import "./styles/global-styles.scss"
 

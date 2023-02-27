@@ -1,9 +1,9 @@
 import React from "react";
 import { Fade } from "react-awesome-reveal";
 
-import SectionTitle from "./SectionTitle.tsx";
-import ListObject from "./ListObject.tsx";
-import LoginOrTry from "./LoginOrTry.tsx";
+import SectionTitle from "./SectionTitle";
+import ListObject from "./ListObject";
+import LoginOrTry from "./LoginOrTry";
 
 import Styles from "../styles/modules/dialog.module.scss";
 import dialogSlice from "../features/dialog/dialogSlice";
@@ -13,10 +13,9 @@ import dialogSlice from "../features/dialog/dialogSlice";
 export default function Dialog() {
   //Data should be loaded dynamically from the backend/cms
 
-  const benefits: string[] = ["Benefit #1", "Benefit #2", "Benefit#3"];
-  const sectionTitle: string = "Benefits of meditation";
-  const sectionSubTitle: string =
-    "Why you should be growing awareness with Awaca?";
+  const benefits = ["Benefit #1", "Benefit #2", "Benefit#3"];
+  const sectionTitle = "Benefits of meditation";
+  const sectionSubTitle = "Why you should be growing awareness with Awaca?";
 
   return (
     <Fade direction="down" className="container  mx-auto px-3">

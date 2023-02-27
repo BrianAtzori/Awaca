@@ -1,5 +1,5 @@
 import React from "react";
-import TimerButtons from "./TimerButtons.tsx";
+import TimerButtons from "./TimerButtons";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
 
 // https://www.npmjs.com/package/react-countdown-circle-timer
