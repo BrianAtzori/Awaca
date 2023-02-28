@@ -23,21 +23,21 @@ export default function Navbar() {
               : "item-center absolute left-0 top-[-100%] flex min-h-fit min-h-[60vh] w-full md:static"
           }
         >
-          <ul className="flex w-full flex-col gap-10 bg-palette-color-lighter p-4 text-[#0c4a6e] md:flex-row md:items-center md:gap-4">
-          <Link to={"/"}>
-              <li>HOME</li>
+          <ul className="flex w-full flex-col bg-palette-color-lighter p-6 text-[#0c4a6e] md:flex-row md:items-center md:gap-4">
+            <Link to={"/"}>
+              <li className="py-2 md:px-2">HOME</li>
             </Link>
             <Link to={"how-to-meditate"}>
-              <li>HOW TO</li>
+              <li className="py-2 md:px-2">HOW TO</li>
             </Link>
             <Link to={"why-you-should-meditate"}>
-              <li>WHY YOU SHOULD MEDITATE</li>
+              <li className="py-2 md:px-2">WHY YOU SHOULD MEDITATE</li>
             </Link>
             <Link to={"awaka-links"}>
-              <li>LINKS</li>
+              <li className="py-2 md:px-2">LINKS</li>
             </Link>
             <Link to={"about-awaka"}>
-              <li>ABOUT</li>
+            <li className="py-2 md:px-2">ABOUT</li>
             </Link>
           </ul>
         </div>
