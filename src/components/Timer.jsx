@@ -10,6 +10,8 @@ import sampleBackground from "../assets/images/background_pic_sample.jpg";
 
 // Vedere bene funzioni Timer
 
+//Da gestire disable bottoni del tempo quando timer va e cambio testo bottone in pause
+
 export default function Timer() {
   const timerAmount = useSelector((state) => state.timer.value);
   const isTimerPlaying = useSelector((state) => state.timer.isPlaying);
@@ -32,14 +34,14 @@ export default function Timer() {
       </h2>
       <div className="mx-auto">
         <CountdownCircleTimer
-          isPlaying = {isTimerPlaying === true ? true : false}
-          duration={timerAmount * 60}
+          isPlaying={isTimerPlaying === true ? true : false}
+          duration={timerAmount}
           colors={["#3c979f", "#73b3b2", "#aecfd0", "#bed9dd"]}
           colorsTime={timerSectors}
           size={200} // Gestisco con size del parent per responsiveness?
           //Prop Children
         >
-          {({ remainingTime }) => remainingTime}
+          {({ remainingTime }) => remainingTime /60}
         </CountdownCircleTimer>
       </div>
       <TimerButtons></TimerButtons>

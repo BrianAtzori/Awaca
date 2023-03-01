@@ -5,11 +5,7 @@ export const timerSlice = createSlice({
   initialState: { value: 0, isPlaying: false },
   reducers: {
     increaseTimer: (state) => {
-      //   console.log(state.value);
-
-      state.value = state.value + 1;
-
-      console.log(state.value);
+      state.value = state.value + 30;
     },
     decreaseTimer: (state) => {
       if (state.value === 0) {
@@ -22,9 +18,7 @@ export const timerSlice = createSlice({
     },
     startTimer: (state) => {
       if (state.value === 0) {
-        alert(
-          "You can't start the timer if it's set to 0!"
-        );
+        alert("You can't start the timer if it's set to 0!");
       }
       state.isPlaying = true;
     },
