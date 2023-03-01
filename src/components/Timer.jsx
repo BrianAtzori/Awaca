@@ -12,6 +12,8 @@ import sampleBackground from "../assets/images/background_pic_sample.jpg";
 
 export default function Timer() {
   const timerAmount = useSelector((state) => state.timer.value);
+  const isTimerPlaying = useSelector((state) => state.timer.isPlaying);
+
   const timerSectors = [
     (timerAmount / 4) * 3,
     (timerAmount / 4) * 2,
@@ -30,11 +32,12 @@ export default function Timer() {
       </h2>
       <div className="mx-auto">
         <CountdownCircleTimer
+          isPlaying = {isTimerPlaying === true ? true : false}
           duration={timerAmount * 60}
           colors={["#3c979f", "#73b3b2", "#aecfd0", "#bed9dd"]}
           colorsTime={timerSectors}
           size={200} // Gestisco con size del parent per responsiveness?
-        //Prop Children
+          //Prop Children
         >
           {({ remainingTime }) => remainingTime}
         </CountdownCircleTimer>
