@@ -13,7 +13,7 @@ export const timerSlice = createSlice({
           "Wait! You are trying to decrease the amount of the timer but currently is set to 0."
         );
       } else {
-        state.value = state.value - 1;
+        state.value = state.value - 30;
       }
     },
     startTimer: (state) => {

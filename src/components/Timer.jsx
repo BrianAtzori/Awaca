@@ -22,6 +22,8 @@ export default function Timer() {
     timerAmount / 4,
   ];
 
+  let timerDisplay = 0
+
   return (
     <main
       className="mt-10 flex h-96 flex-auto flex-col bg-cover bg-center bg-no-repeat "
@@ -41,7 +43,7 @@ export default function Timer() {
           size={200} // Gestisco con size del parent per responsiveness?
           //Prop Children
         >
-          {({ remainingTime }) => remainingTime /60}
+          {({ remainingTime }) => timerDisplay = (Math.floor(remainingTime/60)).toString() + ":" +(Math.floor(remainingTime % 60).toString())}
         </CountdownCircleTimer>
       </div>
       <TimerButtons></TimerButtons>
