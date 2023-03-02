@@ -1,8 +1,11 @@
 import React from "react";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
 import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { resetTimer } from "../features/timer/timerSlice";
 
 import TimerButtons from "./TimerButtons";
+import TimerDisplay from "./TimerDisplay";
 
 import sampleBackground from "../assets/images/background_pic_sample.jpg";
 
@@ -16,21 +19,56 @@ export default function Timer() {
   const timerAmount = useSelector((state) => state.timer.value);
   const isTimerPlaying = useSelector((state) => state.timer.isPlaying);
 
+  const dispatch = useDispatch()
+
   const timerSectors = [
     (timerAmount / 4) * 3,
     (timerAmount / 4) * 2,
     timerAmount / 4,
   ];
 
-  let timerDisplay = 0
+  let remainingMinutes = 0;
+
+  function manageTimeConversion(time, operator) {
+    switch (operator) {
+      case "/": {
+        let minutes = Math.floor(time / 60);
+        if (minutes < 10) {
+          return "0" + minutes.toString();
+        }
+        return minutes
+        break;
+      }
+
+      case "%": {
+        let seconds = Math.floor(time % 60);
+        if (seconds < 10) {
+          return "0"+seconds.toString()
+        }
+        return seconds
+        break;
+      }
+
+      default:
+        break;
+    }
+  }
+
+  function timerDisplayGeneration(remainingSeconds) {
+    remainingMinutes =
+      manageTimeConversion(remainingSeconds, "/") +
+      ":" +
+      manageTimeConversion(remainingSeconds, "%");
+
+    return <TimerDisplay remainingTime={remainingMinutes}></TimerDisplay>;
+  }
 
   return (
     <main
       className="mt-10 flex h-96 flex-auto flex-col bg-cover bg-center bg-no-repeat "
-      style={{ backgroundImage: `url(${sampleBackground})` }}
+      // style={{ backgroundImage: `url(${sampleBackground})` }}
     >
       <h2 className="mb-6 rounded-md bg-palette-color-medium pl-2 pr-2 text-center font-dosis text-lg font-bold text-[#0c4a6e]">
-        {" "}
         Now use the buttons to select the amount of minutes you want to spend
         meditating:
       </h2>
@@ -41,9 +79,9 @@ export default function Timer() {
           colors={["#3c979f", "#73b3b2", "#aecfd0", "#bed9dd"]}
           colorsTime={timerSectors}
           size={200} // Gestisco con size del parent per responsiveness?
-          //Prop Children
+          onComplete={() => dispatch(resetTimer())}
         >
-          {({ remainingTime }) => timerDisplay = (Math.floor(remainingTime/60)).toString() + ":" +(Math.floor(remainingTime % 60).toString())}
+          {({ remainingTime }) => timerDisplayGeneration(remainingTime)}
         </CountdownCircleTimer>
       </div>
       <TimerButtons></TimerButtons>

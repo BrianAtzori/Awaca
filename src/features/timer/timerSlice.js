@@ -19,11 +19,17 @@ export const timerSlice = createSlice({
     startTimer: (state) => {
       if (state.value === 0) {
         alert("You can't start the timer if it's set to 0!");
+      } else {
+        state.isPlaying = true;
       }
-      state.isPlaying = true;
+    },
+    resetTimer: (state) => {
+      state.value = 0;
+      state.isPlaying = false;
     },
   },
 });
 
-export const { increaseTimer, decreaseTimer, startTimer } = timerSlice.actions;
+export const { increaseTimer, decreaseTimer, startTimer, resetTimer } =
+  timerSlice.actions;
 export default timerSlice.reducer;
