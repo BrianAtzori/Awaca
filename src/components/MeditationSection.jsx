@@ -1,6 +1,6 @@
 import React from "react";
 
-import Quote from "./Quote";
+import Hero from "./Hero";
 import Timer from "./Timer";
 import Spotify from "./Spotify";
 import Footer from "./Footer";
@@ -22,20 +22,9 @@ import Footer from "./Footer";
 //Bonus: First time? Read This: -> Dialog?
 
 export default function Meditation() {
-  const quote =
-    "“Distractions are everywhere. Notice what takes your attention, acknowledge it, and then let it go.”";
-
-    
-
   return (
     <>
-      <section
-        className="container mx-auto flex flex-col p-10 md:w-11/12"
-      >
-        <h1 className="rounded-md bg-palette-color-medium pl-2 pr-2 text-center font-dosis text-lg font-bold text-[#0c4a6e]">
-          Embrace Awareness with Awaca, start with a nice quote:
-        </h1>
-        <Quote quote={quote}></Quote>
+      <section className="mt-96 container mx-auto flex flex-col gap-10 p-10 sm:flex-row md:w-11/12 ">
         <Timer></Timer>
         <Spotify></Spotify>
       </section>
@@ -43,3 +32,5 @@ export default function Meditation() {
     </>
   );
 }
+
+

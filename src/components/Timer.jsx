@@ -66,10 +66,9 @@ export default function Timer() {
   return (
     <main
       className="mt-10 flex h-96 flex-auto flex-col bg-cover bg-center bg-no-repeat "
-      // style={{ backgroundImage: `url(${sampleBackground})` }}
     >
       <h2 className="mb-6 rounded-md bg-palette-color-medium pl-2 pr-2 text-center font-dosis text-lg font-bold text-[#0c4a6e]">
-        Now use the buttons to select the amount of minutes you want to spend
+        Use the buttons to select the amount of minutes you want to spend
         meditating:
       </h2>
       <div className="mx-auto">
