@@ -24,7 +24,7 @@ import Footer from "./Footer";
 export default function Meditation() {
   return (
     <>
-      <section className="mt-96 container mx-auto flex flex-col gap-10 p-10 sm:flex-row md:w-11/12 ">
+      <section className="mt-96 container mx-auto flex flex-col gap-10 p-10 pt-24 sm:flex-row md:w-11/12 lg:pt-32 xl:pt-30 2xl:mt-[30vh] 2xl:w-full">
         <Timer></Timer>
         <Spotify></Spotify>
       </section>
