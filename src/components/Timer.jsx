@@ -1,17 +1,15 @@
 import React from "react";
-import { CountdownCircleTimer } from "react-countdown-circle-timer";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { resetTimer } from "../features/timer/timerSlice";
+import { increaseTimer, resetTimer } from "../features/timer/timerSlice";
 
 import TimerButtons from "./TimerButtons";
 import TimerDisplay from "./TimerDisplay";
-
-import sampleBackground from "../assets/images/background_pic_sample.jpg";
+import { CountdownCircleTimer } from "react-countdown-circle-timer";
+import Confetti from 'react-confetti'
 
 // https://www.npmjs.com/package/react-countdown-circle-timer
-
-// Vedere bene funzioni Timer
+// https://www.npmjs.com/package/react-confetti
 
 //Da gestire disable bottoni del tempo quando timer va e cambio testo bottone in pause
 
@@ -62,6 +60,7 @@ export default function Timer() {
 
     return <TimerDisplay remainingTime={remainingMinutes}></TimerDisplay>;
   }
+  
 
   return (
     <main
@@ -83,7 +82,7 @@ export default function Timer() {
           {({ remainingTime }) => timerDisplayGeneration(remainingTime)}
         </CountdownCircleTimer>
       </div>
-      <TimerButtons></TimerButtons>
+      { isTimerPlaying ||<TimerButtons></TimerButtons>}
     </main>
   );
 }
