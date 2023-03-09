@@ -29,9 +29,12 @@ export const timerSlice = createSlice({
         state.isPlaying = false;
       }
     },
+    pauseTimer: (state) =>{
+      state.isPlaying ? state.isPlaying = false : state.isPlaying=true
+    }
   },
 });
 
-export const { increaseTimer, decreaseTimer, startTimer, resetTimer } =
+export const { increaseTimer, decreaseTimer, startTimer, resetTimer, pauseTimer } =
   timerSlice.actions;
 export default timerSlice.reducer;

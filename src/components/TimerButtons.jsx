@@ -1,25 +1,38 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { increaseTimer, decreaseTimer, startTimer } from "../features/timer/timerSlice";
-
-
+import {
+  increaseTimer,
+  decreaseTimer,
+  startTimer,
+  pauseTimer,
+} from "../features/timer/timerSlice";
 
 export default function TimerButtons() {
+  const isTimerPlaying = useSelector((state) => state.timer.isPlaying);
+  const dispatch = useDispatch();
 
-  const dispatch = useDispatch()
-  
   return (
-    <div className="mt-6 grid grid-cols-3 mx-auto">
-
-      <button onClick={() => dispatch(decreaseTimer())} className="justify-self-center h-12 w-12  rounded-full rounded-full border-2 bg-palette-color-dark font-lato  text-xl font-bold text-[#fff]">
+    <div className="mx-auto mt-6 grid grid-cols-3">
+      <button
+        onClick={() => dispatch(decreaseTimer())}
+        className="h-12 w-12 justify-self-center  rounded-full rounded-full border-2 bg-palette-color-dark font-lato  text-xl font-bold text-[#fff]"
+        disabled={isTimerPlaying ? true : false}
+      >
         -
       </button>
 
-      <button onClick={() => dispatch(startTimer())} className=" justify-self-center h-20 w-20 rounded-full border-2 bg-palette-color-dark font-dosis text-[#fff]">
-        START
+      <button
+        onClick={ isTimerPlaying ? () => dispatch(pauseTimer()) :() => dispatch(startTimer())}
+        className=" h-20 w-20 justify-self-center rounded-full border-2 bg-palette-color-dark font-dosis text-[#fff]"
+      >
+        {isTimerPlaying ? "PAUSE" : "START"}
       </button>
 
-      <button  onClick={() => dispatch(increaseTimer())} className=" justify-self-center h-12 w-12 rounded-full border-2 bg-palette-color-dark font-lato text-xl font-bold text-[#fff]">
+      <button
+        onClick={() => dispatch(increaseTimer())}
+        className=" h-12 w-12 justify-self-center rounded-full border-2 bg-palette-color-dark font-lato text-xl font-bold text-[#fff]"
+        disabled={isTimerPlaying ? true : false}
+      >
         +
       </button>
     </div>

@@ -83,7 +83,7 @@ export default function Timer() {
           {({ remainingTime }) => timerDisplayGeneration(remainingTime)}
         </CountdownCircleTimer>
       </div>
-      {isTimerPlaying || <TimerButtons></TimerButtons>}
+      <TimerButtons buttonAction={isTimerPlaying ? "PAUSE" : "START"}></TimerButtons>
     </main>
   );
 }
