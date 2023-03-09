@@ -24,8 +24,10 @@ export const timerSlice = createSlice({
       }
     },
     resetTimer: (state) => {
-      state.value = 0;
-      state.isPlaying = false;
+      if (state.isPlaying) {
+        state.value = 0;
+        state.isPlaying = false;
+      }
     },
   },
 });

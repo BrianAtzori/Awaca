@@ -1,12 +1,11 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { increaseTimer, resetTimer } from "../features/timer/timerSlice";
+import { resetTimer } from "../features/timer/timerSlice";
 
 import TimerButtons from "./TimerButtons";
 import TimerDisplay from "./TimerDisplay";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
-import Confetti from 'react-confetti'
 
 // https://www.npmjs.com/package/react-countdown-circle-timer
 // https://www.npmjs.com/package/react-confetti
@@ -17,7 +16,7 @@ export default function Timer() {
   const timerAmount = useSelector((state) => state.timer.value);
   const isTimerPlaying = useSelector((state) => state.timer.isPlaying);
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const timerSectors = [
     (timerAmount / 4) * 3,
@@ -34,17 +33,15 @@ export default function Timer() {
         if (minutes < 10) {
           return "0" + minutes.toString();
         }
-        return minutes
-        break;
+        return minutes;
       }
 
       case "%": {
         let seconds = Math.floor(time % 60);
         if (seconds < 10) {
-          return "0"+seconds.toString()
+          return "0" + seconds.toString();
         }
-        return seconds
-        break;
+        return seconds;
       }
 
       default:
@@ -60,29 +57,33 @@ export default function Timer() {
 
     return <TimerDisplay remainingTime={remainingMinutes}></TimerDisplay>;
   }
-  
+
+  function timerRestart() {
+    dispatch(resetTimer());
+  }
 
   return (
-    <main
-      className="mt-10 flex h-96 flex-auto flex-col bg-cover bg-center bg-no-repeat "
-    >
+    <main className="mt-10 flex h-96 flex-auto flex-col bg-cover bg-center bg-no-repeat ">
       <h2 className="mb-6 rounded-md bg-palette-color-medium pl-2 pr-2 text-center font-dosis text-lg font-bold text-[#0c4a6e]">
         Use the buttons to select the amount of minutes you want to spend
         meditating:
       </h2>
       <div className="mx-auto">
         <CountdownCircleTimer
-          isPlaying={isTimerPlaying === true ? true : false}
+          isPlaying={isTimerPlaying}
           duration={timerAmount}
           colors={["#3c979f", "#73b3b2", "#aecfd0", "#bed9dd"]}
           colorsTime={timerSectors}
           size={200} // Gestisco con size del parent per responsiveness?
-          onComplete={() => dispatch(resetTimer())}
+          onComplete={() => {
+            timerRestart();
+            return { shouldRepeat: true };
+          }}
         >
           {({ remainingTime }) => timerDisplayGeneration(remainingTime)}
         </CountdownCircleTimer>
       </div>
-      { isTimerPlaying ||<TimerButtons></TimerButtons>}
+      {isTimerPlaying || <TimerButtons></TimerButtons>}
     </main>
   );
 }
