@@ -9,6 +9,7 @@ import { CountdownCircleTimer } from "react-countdown-circle-timer";
 
 // https://www.npmjs.com/package/react-countdown-circle-timer
 // https://www.npmjs.com/package/react-confetti
+// https://www.joshwcomeau.com/react/announcing-use-sound-react-hook/
 
 //Da gestire disable bottoni del tempo quando timer va e cambio testo bottone in pause
 
