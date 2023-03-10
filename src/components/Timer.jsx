@@ -7,17 +7,20 @@ import TimerButtons from "./TimerButtons";
 import TimerDisplay from "./TimerDisplay";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
 
+import useSound from 'use-sound';
+import bellSFX from "../assets/sounds/bell_sfx.mp3"
+
 // https://www.npmjs.com/package/react-countdown-circle-timer
 // https://www.npmjs.com/package/react-confetti
 // https://www.joshwcomeau.com/react/announcing-use-sound-react-hook/
-
-//Da gestire disable bottoni del tempo quando timer va e cambio testo bottone in pause
 
 export default function Timer() {
   const timerAmount = useSelector((state) => state.timer.value);
   const isTimerPlaying = useSelector((state) => state.timer.isPlaying);
 
   const dispatch = useDispatch();
+
+  const [playBell] = useSound(bellSFX)
 
   const timerSectors = [
     (timerAmount / 4) * 3,
@@ -59,8 +62,14 @@ export default function Timer() {
     return <TimerDisplay remainingTime={remainingMinutes}></TimerDisplay>;
   }
 
-  function timerRestart() {
-    dispatch(resetTimer());
+  function timerComplete() {
+
+    if(isTimerPlaying){
+      playBell()
+      dispatch(resetTimer());
+    }
+
+
   }
 
   return (
@@ -77,8 +86,8 @@ export default function Timer() {
           colorsTime={timerSectors}
           size={200} // Gestisco con size del parent per responsiveness?
           onComplete={() => {
-            timerRestart();
-            return { shouldRepeat: true };
+            timerComplete()
+            return { shouldRepeat: true};
           }}
         >
           {({ remainingTime }) => timerDisplayGeneration(remainingTime)}
