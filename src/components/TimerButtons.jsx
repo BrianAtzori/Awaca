@@ -15,7 +15,7 @@ export default function TimerButtons() {
     <div className="mx-auto mt-6 grid grid-cols-3">
       <button
         onClick={() => dispatch(decreaseTimer())}
-        className="h-12 w-12 justify-self-center  rounded-full rounded-full border-2 bg-palette-color-dark font-lato  text-xl font-bold text-[#fff]"
+        className="h-12 w-12 justify-self-center rounded-full border-2 bg-palette-color-dark font-lato  text-xl font-bold text-[#fff]"
         disabled={isTimerPlaying ? true : false}
       >
         -
