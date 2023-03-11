@@ -71,36 +71,36 @@ export default function Timer() {
   }
 
   function calculateSize() {
-    console.log(window.innerWidth);
+    // console.log(window.innerWidth);
     let timerSize = 0;
 
     if (window.innerWidth < 500) {
       timerSize = window.innerWidth - (window.innerWidth * 30) / 100;
-      console.log(timerSize);
+      // console.log(timerSize);
       return timerSize;
     }
 
     if (window.innerWidth > 500 && window.innerWidth < 1000) {
       timerSize = window.innerWidth - (window.innerWidth * 70) / 100;
-      console.log(timerSize);
+      // console.log(timerSize);
       return timerSize;
     }
 
     if (window.innerWidth > 1000 && window.innerWidth <1400) {
       timerSize = window.innerWidth - (window.innerWidth * 75) / 100;
-      console.log(timerSize);
+      // console.log(timerSize);
       return timerSize;
     }
 
     if (window.innerWidth > 1400 && window.innerWidth  < 1900) {
       timerSize = window.innerWidth - (window.innerWidth * 80) / 100;
-      console.log(timerSize);
+      // console.log(timerSize);
       return timerSize;
     }
 
     if (window.innerWidth > 1900) {
       timerSize = window.innerWidth - (window.innerWidth * 85) / 100;
-      console.log(timerSize);
+      // console.log(timerSize);
       return timerSize;
     }
   }
