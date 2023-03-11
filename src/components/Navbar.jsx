@@ -28,10 +28,10 @@ export default function Navbar() {
               <li className="py-2 md:px-2">HOME</li>
             </Link>
             <Link to={"how-to-meditate"}>
-              <li className="py-2 md:px-2">HOW TO</li>
+              <li className="py-2 md:px-2">HOW</li>
             </Link>
             <Link to={"why-you-should-meditate"}>
-              <li className="py-2 md:px-2">WHY YOU SHOULD MEDITATE</li>
+              <li className="py-2 md:px-2">WHY</li>
             </Link>
             <Link to={"awaka-links"}>
               <li className="py-2 md:px-2">LINKS</li>
