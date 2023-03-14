@@ -11,7 +11,7 @@ export default function Navbar() {
   const [isOpen, setOpen] = useState(false);
 
   return (
-    <header className="z-10 bg-palette-color-lighter font-lato">
+    <header className="z-10 bg-palette-color-aliceblue font-lato">
       <nav className="mx-auto flex w-11/12 items-center justify-between">
         <div>
           <img src={awacaLogo} alt="awaca_logo" className="w-20 2xl:w-32"></img>
@@ -23,7 +23,7 @@ export default function Navbar() {
               : "item-center absolute left-0 top-[-100%] flex min-h-fit min-h-[60vh] w-full md:static"
           }
         >
-          <ul className="flex w-full text-center flex-col bg-palette-color-lighter p-6 text-[#0c4a6e] md:flex-row md:items-center md:gap-4 text-xl">
+          <ul className="flex w-full text-center flex-col bg-palette-color-aliceblue p-6 text-[#0c4a6e] md:flex-row md:items-center md:gap-4 text-xl">
             <Link to={"/"}>
               <li className="py-2 md:px-2">HOME</li>
             </Link>

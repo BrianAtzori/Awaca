@@ -24,6 +24,7 @@ export default function Timer() {
   const [playBell] = useSound(bellSFX);
 
   const timerSectors = [
+    timerAmount,
     (timerAmount / 4) * 3,
     (timerAmount / 4) * 2,
     timerAmount / 4,
@@ -86,13 +87,13 @@ export default function Timer() {
       return timerSize;
     }
 
-    if (window.innerWidth > 1000 && window.innerWidth <1400) {
+    if (window.innerWidth > 1000 && window.innerWidth < 1400) {
       timerSize = window.innerWidth - (window.innerWidth * 75) / 100;
       // console.log(timerSize);
       return timerSize;
     }
 
-    if (window.innerWidth > 1400 && window.innerWidth  < 1900) {
+    if (window.innerWidth > 1400 && window.innerWidth < 1900) {
       timerSize = window.innerWidth - (window.innerWidth * 80) / 100;
       // console.log(timerSize);
       return timerSize;
@@ -107,7 +108,7 @@ export default function Timer() {
 
   return (
     <main className="mt-10 flex h-96 flex-col bg-cover bg-center bg-no-repeat lg:w-8/12">
-      <h2 className="mb-6 rounded-md bg-palette-color-medium pl-2 pr-2 text-center font-dosis text-lg font-bold text-[#0c4a6e]">
+      <h2 className="mb-6 rounded-md bg-palette-color-blue pl-2 pr-2 text-center font-dosis text-lg font-bold text-palette-color-whitesmoke">
         Use the buttons to select the amount of minutes you want to spend
         meditating:
       </h2>
@@ -115,7 +116,7 @@ export default function Timer() {
         <CountdownCircleTimer
           isPlaying={isTimerPlaying}
           duration={timerAmount}
-          colors={["#3c979f", "#73b3b2", "#aecfd0", "#bed9dd"]}
+          colors={["#646DC3", "#A065BB", "#F86A83", "#FFBA00"]}
           colorsTime={timerSectors}
           size={calculateSize()}
           onComplete={() => {
