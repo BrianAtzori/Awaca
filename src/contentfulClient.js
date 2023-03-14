@@ -18,23 +18,36 @@ export default async function getResourcesFromAPI(target) {
     })
     .catch(console.error);
 
-  let dataFromAPI = responseReader(payload);
+  let dataFromAPI = responseReader(payload, target);
 
   return dataFromAPI;
 }
 
-function responseReader(payload) {
-  // console.log(payload)
+function responseReader(payload, type) {
+  // eslint-disable-next-line default-case
+  switch (type) {
+    case "quotes": {
+      let quotesArray = [""];
 
-  let quotesArray = [""];
-
-  for (const property in payload) {
-    if (property != "quotes") {
-      quotesArray.push(
-        payload[property].content[0].content[0].content[0].value
-      );
+      for (const property in payload) {
+        if (property !== "quotes") {
+          quotesArray.push(
+            payload[property].content[0].content[0].content[0].value
+          );
+        }
+      }
+      return quotesArray;
+    }
+    case "images":{
+      let imagesArray = [""];
+      for (const property in payload) {
+        if (property !== "quotes") {
+          imagesArray.push(
+            payload[property].fields.file.url
+          );
+        }
+      }
+      return imagesArray;
     }
   }
-
-  return quotesArray;
 }

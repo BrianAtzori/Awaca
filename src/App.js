@@ -2,7 +2,7 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
-import Homepage from "./pages/Hompage";
+import Homepage from "./pages/Homepage";
 import HowToMeditate from "./pages/HowToMeditate";
 import WhyYouShouldMeditate from "./pages/WhyYouShouldMeditate";
 import Links from "./pages/Links";
