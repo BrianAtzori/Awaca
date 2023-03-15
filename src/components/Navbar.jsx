@@ -27,10 +27,10 @@ export default function Navbar() {
             <Link to={"/"}>
               <li className="py-2 md:px-2">HOME</li>
             </Link>
-            <Link to={"how-to-meditate"}>
+            <Link to={"why-you-should-meditate"}>
               <li className="py-2 md:px-2">WHY</li>
             </Link>
-            <Link to={"why-you-should-meditate"}>
+            <Link to={"how-to-meditate"}>
               <li className="py-2 md:px-2">HOW</li>
             </Link>
             <Link to={"awaka-links"}>

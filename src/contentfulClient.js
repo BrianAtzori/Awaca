@@ -38,16 +38,17 @@ function responseReader(payload, type) {
       }
       return quotesArray;
     }
-    case "images":{
+    case "images": {
       let imagesArray = [""];
       for (const property in payload) {
         if (property !== "quotes") {
-          imagesArray.push(
-            payload[property].fields.file.url
-          );
+          imagesArray.push(payload[property].fields.file.url);
         }
       }
       return imagesArray;
+    }
+    case "meditationArticle": {
+      return payload;
     }
   }
 }
