@@ -9,13 +9,13 @@ import SectionTitle from "../components/SectionTitle";
 import Article from "../components/Article";
 
 export default function WhyYouShouldMeditate() {
-  const [article, setArticle] = useState("undefined");
+  const [article, setArticle] = useState("");
 
   const loading = useSelector((state) => state.loader.value);
   const dispatch = useDispatch();
 
   async function getArticle() {
-    let mergedArticle = await getResourcesFromAPI("meditationArticle");
+    let mergedArticle = await getResourcesFromAPI("meditationArticle","2PyceCuiPLAJRP3nsYpTb5");
     setArticle(mergedArticle);
   }
 

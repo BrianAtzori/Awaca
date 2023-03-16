@@ -8,31 +8,35 @@ const client = createClient({
 
 //response.items[0].fields.quote1.content[0].content[0].content[0].value
 
-export default async function getResourcesFromAPI(target) {
+export default async function getResourcesFromAPI(target, requestedEntry) {
   let payload = await client
     .getEntries({
       content_type: target,
     })
     .then((response) => {
-      return response.items[0].fields;
+      return response.items;
     })
     .catch(console.error);
 
-  let dataFromAPI = responseReader(payload, target);
+  // console.log(payload)
+
+  let dataFromAPI = responseReader(payload, target, requestedEntry);
 
   return dataFromAPI;
 }
 
-function responseReader(payload, type) {
+function responseReader(payload, type, requestedEntry) {
+  // console.log(requestedEntry)
+
   // eslint-disable-next-line default-case
   switch (type) {
     case "quotes": {
       let quotesArray = [""];
 
-      for (const property in payload) {
+      for (const property in payload[0].fields) {
         if (property !== "quotes") {
           quotesArray.push(
-            payload[property].content[0].content[0].content[0].value
+            payload[0].fields[property].content[0].content[0].content[0].value
           );
         }
       }
@@ -40,15 +44,25 @@ function responseReader(payload, type) {
     }
     case "images": {
       let imagesArray = [""];
-      for (const property in payload) {
+      for (const property in payload[0].fields) {
         if (property !== "quotes") {
-          imagesArray.push(payload[property].fields.file.url);
+          imagesArray.push(payload[0].fields[property].fields.file.url);
         }
       }
       return imagesArray;
     }
     case "meditationArticle": {
-      return payload;
+      
+
+      // console.log(requestedEntry)
+
+      //  requestedEntry = "WnwB791mFcR4m8UUzxm8q"
+
+      // console.log(payload[1].fields)
+
+      const selectedArticle = payload.find((element => element.sys.id === requestedEntry))
+
+      return selectedArticle.fields
     }
   }
 }

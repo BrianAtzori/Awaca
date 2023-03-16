@@ -6,9 +6,6 @@ module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {},
-    screens:{
-      
-    },
     fontFamily:{
       'dosis': ['Dosis', 'sans-serif'],
       'lato':['Lato','sans-serif']
