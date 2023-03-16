@@ -52,17 +52,30 @@ function responseReader(payload, type, requestedEntry) {
       return imagesArray;
     }
     case "meditationArticle": {
-      
-
       // console.log(requestedEntry)
 
       //  requestedEntry = "WnwB791mFcR4m8UUzxm8q"
 
       // console.log(payload[1].fields)
 
-      const selectedArticle = payload.find((element => element.sys.id === requestedEntry))
+      const selectedArticle = payload.find(
+        (element) => element.sys.id === requestedEntry
+      );
 
-      return selectedArticle.fields
+      return selectedArticle.fields;
+    }
+    case "infoPage":{
+      return payload[0].fields
+    }
+    case "links":{
+      let linksToRender = []
+
+      payload.forEach(element => {
+        linksToRender.push(element.fields)
+      });
+
+      return linksToRender
+
     }
   }
 }
