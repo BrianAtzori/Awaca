@@ -4,11 +4,13 @@ import { useDispatch } from "react-redux";
 import { stopLoading } from "../features/loader/loaderSlice";
 import getResourcesFromAPI from "../contentfulClient";
 import { sample } from "lodash";
-
+import defaultCover from "../assets/images/background_pic_sample.jpg"
 import Quote from "./Quote";
 import { ColorRing } from "react-loader-spinner";
 
 export default function Hero() {
+  const defaultQuote = "Meditation is not about stopping thoughts, but recognizing that we are more than our thoughts and our feelings."
+
   const [quote, setQuote] = useState("");
   const [cover, setCover] = useState();
   const loading = useSelector((state) => state.loader.value);
@@ -19,7 +21,7 @@ export default function Hero() {
 
     let singleQuote = sample(retrievedQuotes);
 
-    setQuote(singleQuote);
+    setQuote(singleQuote === "" ? defaultQuote : singleQuote);
   }
 
   async function getCover() {
@@ -27,7 +29,7 @@ export default function Hero() {
 
     let singleCover = sample(retrievedCovers);
 
-    setCover(singleCover);
+    setCover(singleCover === "" ? defaultCover : singleCover );
   }
 
   function loadHero() {
