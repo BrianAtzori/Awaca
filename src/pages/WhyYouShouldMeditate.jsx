@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { stopLoading } from "../features/loader/loaderSlice";
 import { ColorRing } from "react-loader-spinner";
-
+import nextId from "react-id-generator";
 import SectionTitle from "../components/SectionTitle";
 import Article from "../components/Article";
 import Footer from "../components/Footer";

@@ -6,6 +6,7 @@ import { stopLoading } from "../features/loader/loaderSlice";
 import { ColorRing } from "react-loader-spinner";
 import Card from "../components/Card";
 import Footer from "../components/Footer"
+import nextId from "react-id-generator";
 
 export default function About() {
   const [linksArray, setLinksArray] = useState([]);
@@ -26,7 +27,7 @@ export default function About() {
 
   const linksToRender = (
     <>
-      {linksArray.map( (link) => { return <Card featuredImage={link.linkImage.fields.file.url} cardLink={link.link} linkName={link.name}></Card>})}
+      {linksArray.map( (link) => { return <Card key={nextId()} featuredImage={link.linkImage.fields.file.url} cardLink={link.link} linkName={link.name}></Card>})}
     </>
   );
 
