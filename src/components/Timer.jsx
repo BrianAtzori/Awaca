@@ -9,6 +9,7 @@ import TimerDisplay from "./TimerDisplay";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
 import useSound from "use-sound";
 import bellSFX from "../assets/sounds/bell_sfx.mp3";
+import "../styles/timer.scss"
 
 // https://www.npmjs.com/package/react-countdown-circle-timer
 // https://www.npmjs.com/package/react-confetti
@@ -147,7 +148,7 @@ export default function Timer() {
       <TimerButtons
         buttonAction={isTimerPlaying ? "PAUSE" : "START"}
       ></TimerButtons>
-      <ToastContainer></ToastContainer>
+      <ToastContainer position="bottom-center"></ToastContainer>
     </main>
   );
 }
