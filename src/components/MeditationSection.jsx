@@ -28,7 +28,6 @@ export default function Meditation() {
         <Timer></Timer>
         <Spotify></Spotify>
       </section>
-      <Footer></Footer>
     </>
   );
 }

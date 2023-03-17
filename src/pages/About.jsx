@@ -7,6 +7,7 @@ import { ColorRing } from "react-loader-spinner";
 
 import SectionTitle from "../components/SectionTitle";
 import Article from "../components/Article";
+import Footer from "../components/Footer";
 
 export default function About() {
   const [article, setArticle] = useState("");
@@ -47,8 +48,11 @@ export default function About() {
   );
 
   return (
-    <div className="container mx-auto flex flex-col gap-5 p-8 ">
-      {article === undefined ? loader : articleToRender}
-    </div>
+    <>
+      <div className="container mx-auto flex flex-col gap-5 p-8 ">
+        {article === undefined ? loader : articleToRender}
+      </div>
+      <Footer></Footer>
+    </>
   );
 }

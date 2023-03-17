@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import { stopLoading } from "../features/loader/loaderSlice";
 import { ColorRing } from "react-loader-spinner";
 import Card from "../components/Card";
+import Footer from "../components/Footer"
 
 export default function About() {
   const [linksArray, setLinksArray] = useState([]);
@@ -42,8 +43,12 @@ export default function About() {
   );
 
   return (
-    <div className="container mx-auto flex flex-col gap-5 p-8 ">
+    <>
+        <div className="container mx-auto flex flex-col gap-5 p-8 ">
       {linksArray === undefined ? loader : linksToRender}
     </div>
+    <Footer></Footer>
+    </>
+
   );
 }

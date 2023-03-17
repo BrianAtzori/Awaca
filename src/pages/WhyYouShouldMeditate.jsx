@@ -7,6 +7,7 @@ import { ColorRing } from "react-loader-spinner";
 
 import SectionTitle from "../components/SectionTitle";
 import Article from "../components/Article";
+import Footer from "../components/Footer";
 
 export default function WhyYouShouldMeditate() {
   const [article, setArticle] = useState("");
@@ -15,7 +16,10 @@ export default function WhyYouShouldMeditate() {
   const dispatch = useDispatch();
 
   async function getArticle() {
-    let mergedArticle = await getResourcesFromAPI("meditationArticle","2PyceCuiPLAJRP3nsYpTb5");
+    let mergedArticle = await getResourcesFromAPI(
+      "meditationArticle",
+      "2PyceCuiPLAJRP3nsYpTb5"
+    );
     setArticle(mergedArticle);
   }
 
@@ -47,8 +51,11 @@ export default function WhyYouShouldMeditate() {
   );
 
   return (
-    <div className="container mx-auto flex flex-col gap-5 p-8 ">
-      {article === undefined ? loader : articleToRender}
-    </div>
+    <>
+      <div className="container mx-auto flex flex-col gap-5 p-8 ">
+        {article === undefined ? loader : articleToRender}
+      </div>
+      <Footer></Footer>
+    </>
   );
 }
