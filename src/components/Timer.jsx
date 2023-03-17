@@ -2,18 +2,18 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { resetTimer } from "../features/timer/timerSlice";
-import { useState } from "react";
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import TimerButtons from "./TimerButtons";
 import TimerDisplay from "./TimerDisplay";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
-
 import useSound from "use-sound";
 import bellSFX from "../assets/sounds/bell_sfx.mp3";
 
 // https://www.npmjs.com/package/react-countdown-circle-timer
 // https://www.npmjs.com/package/react-confetti
 // https://www.joshwcomeau.com/react/announcing-use-sound-react-hook/
+// https://www.npmjs.com/package/react-toastify
 
 export default function Timer() {
   const timerAmount = useSelector((state) => state.timer.value);
@@ -64,10 +64,27 @@ export default function Timer() {
     return <TimerDisplay remainingTime={remainingMinutes}></TimerDisplay>;
   }
 
+  function invokeModal(type) {
+    //Function set up to be used dynamically, predicting the use of multiple toasts in the future
+
+    switch (type) {
+      case "timercompletion":
+        const notifyCompetion = () =>
+          toast(
+            "Congratulations! You've completed your meditation session, it is another step in the path to improve your awareness."
+          );
+        notifyCompetion();
+        break;
+      default:
+        break;
+    }
+  }
+
   function timerComplete() {
     if (isTimerPlaying) {
       playBell();
       dispatch(resetTimer());
+      invokeModal("timercompletion");
     }
   }
 
@@ -130,6 +147,7 @@ export default function Timer() {
       <TimerButtons
         buttonAction={isTimerPlaying ? "PAUSE" : "START"}
       ></TimerButtons>
+      <ToastContainer></ToastContainer>
     </main>
   );
 }

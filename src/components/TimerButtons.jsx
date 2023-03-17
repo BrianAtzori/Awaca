@@ -7,7 +7,7 @@ import {
   pauseTimer,
 } from "../features/timer/timerSlice";
 
-export default function TimerButtons() {
+export default function TimerButtons({startFunction}) {
   const isTimerPlaying = useSelector((state) => state.timer.isPlaying);
   const dispatch = useDispatch();
 

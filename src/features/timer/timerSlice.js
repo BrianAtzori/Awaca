@@ -1,6 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import useSound from 'use-sound';
-
+import { ToastContainer, toast } from "react-toastify";
 
 export const timerSlice = createSlice({
   name: "timer",
@@ -23,6 +22,9 @@ export const timerSlice = createSlice({
         alert("You can't start the timer if it's set to 0!");
       } else {
         state.isPlaying = true;
+        toast(
+          "Close your eyes. Breathe slowly and deeply, let the relaxation begin."
+        );
       }
     },
     resetTimer: (state) => {
@@ -31,12 +33,17 @@ export const timerSlice = createSlice({
         state.isPlaying = false;
       }
     },
-    pauseTimer: (state) =>{
-      state.isPlaying ? state.isPlaying = false : state.isPlaying=true
-    }
+    pauseTimer: (state) => {
+      state.isPlaying ? (state.isPlaying = false) : (state.isPlaying = true);
+    },
   },
 });
 
-export const { increaseTimer, decreaseTimer, startTimer, resetTimer, pauseTimer } =
-  timerSlice.actions;
+export const {
+  increaseTimer,
+  decreaseTimer,
+  startTimer,
+  resetTimer,
+  pauseTimer,
+} = timerSlice.actions;
 export default timerSlice.reducer;
