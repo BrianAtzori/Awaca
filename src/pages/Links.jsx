@@ -8,6 +8,7 @@ import SectionTitle from "../components/SectionTitle";
 import Card from "../components/Card";
 import Footer from "../components/Footer";
 import nextId from "react-id-generator";
+import { shuffle } from "lodash";
 
 export default function About() {
   const [linksArray, setLinksArray] = useState([]);
@@ -18,7 +19,7 @@ export default function About() {
   async function getLinks() {
     let links = await getResourcesFromAPI("links");
 
-    setLinksArray(links);
+    setLinksArray(shuffle(links));
   }
 
   useEffect(() => {
@@ -55,14 +56,14 @@ export default function About() {
 
   return (
     <>
-      <section className="container mx-auto mt-5 p-8">
+      <section className="container mx-auto mt-5 p-8 2xl:text-3xl">
         <SectionTitle
           title={"Links & Resources"}
           subTitle={
             "Here you can find some useful links to continue your journey in the mindfulness path"
           }
         ></SectionTitle>
-        <div className="flex flex-wrap flex-row gap-10 p-8 justify-around">
+        <div className="mt-10 flex flex-row flex-wrap justify-around gap-10">
           {linksArray === undefined ? loader : linksToRender}
         </div>
       </section>
