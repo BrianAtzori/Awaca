@@ -57,7 +57,7 @@ export default function About() {
     <>
       <section className="container mx-auto mt-5 p-8">
         <SectionTitle
-          title={"Links&Resources"}
+          title={"Links & Resources"}
           subTitle={
             "Here you can find some useful links to continue your journey in the mindfulness path"
           }
