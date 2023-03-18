@@ -51,7 +51,7 @@ export default function WhyYouShouldMeditate() {
 
   return (
     <>
-      <div className="container mx-auto flex flex-col gap-5 p-8 ">
+      <div className="container mx-auto flex flex-col gap-10 p-8">
         {article === undefined ? loader : articleToRender}
       </div>
       <Footer></Footer>

@@ -4,7 +4,7 @@ import nextId from "react-id-generator";
 export default function Article({ text }) {
     if(text){
         return (
-            <div className="flex flex-col gap-2 font-lato">
+            <div className="flex flex-col gap-2 font-lato text-palette-color-dark-blue text 2xl:text-3xl">
               {text.content.map((item) => {
                 return <p key={nextId()}>{item.content[0].value}</p>
               })}
