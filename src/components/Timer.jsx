@@ -3,7 +3,6 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { resetTimer } from "../features/timer/timerSlice";
 import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import TimerButtons from "./TimerButtons";
 import TimerDisplay from "./TimerDisplay";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
