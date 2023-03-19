@@ -1,6 +1,8 @@
 import React from 'react'
 import { Fade } from 'react-awesome-reveal'
 
+//Receive data from the API that contains a link, a featured image and a title and it renders each information in a card
+
 export default function Card({featuredImage, cardLink, linkName}) {
   
   return (

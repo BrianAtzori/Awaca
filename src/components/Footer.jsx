@@ -1,6 +1,8 @@
 import React from "react";
 import { Fade } from "react-awesome-reveal";
 
+//A simple standard imported from my persona website
+
 export default function Footer() {
   return (
     <>
@@ -14,7 +16,6 @@ export default function Footer() {
           target="_blank"
           rel=" noreferrer noopener"
         >
-          {" "}
           Find out more about me here 🔗
         </a>
       </footer>

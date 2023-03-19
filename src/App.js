@@ -1,13 +1,11 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-
 import Navbar from "./components/Navbar";
 import Homepage from "./pages/Homepage";
 import HowToMeditate from "./pages/HowToMeditate";
 import WhyYouShouldMeditate from "./pages/WhyYouShouldMeditate";
 import Links from "./pages/Links";
 import About from "./pages/About";
-
 import "./styles/global-styles.scss";
 
 export default function App() { 

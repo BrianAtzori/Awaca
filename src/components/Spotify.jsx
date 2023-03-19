@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { Fade } from "react-awesome-reveal";
-
 import randomizePlaylist from "../playlistStorage";
+
+//A component used to renders a random generated iframe that contains and embed spotify playlist
 
 export default function Spotify() {
   const [playlist, setPlaylist] = useState(false);
 
   useEffect(() => {
+    //From playlist storage
     setPlaylist(randomizePlaylist());
   }, []);
 

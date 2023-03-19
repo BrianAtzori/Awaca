@@ -11,6 +11,8 @@ import bellSFX from "../assets/sounds/bell_sfx.mp3";
 import "../styles/timer.scss";
 import { Fade } from "react-awesome-reveal";
 
+//--- EXTERNAL PACKETS ---
+
 // https://www.npmjs.com/package/react-countdown-circle-timer
 // https://www.npmjs.com/package/react-confetti
 // https://www.joshwcomeau.com/react/announcing-use-sound-react-hook/
@@ -22,8 +24,9 @@ export default function Timer() {
 
   const dispatch = useDispatch();
 
-  const [playBell] = useSound(bellSFX);
+  const [playBell] = useSound(bellSFX); // Sound onComplete
 
+  //The external timer accept a prop that triggers the change of the color of the circle timer at given time, this array is generated calculating a quarter of the timer
   const timerSectors = [
     (timerAmount / 4) * 3,
     (timerAmount / 4) * 2,
@@ -32,6 +35,7 @@ export default function Timer() {
 
   let remainingMinutes = 0;
 
+  //Function to calculate minutes and seconds
   function manageTimeConversion(time, operator) {
     switch (operator) {
       case "/": {
@@ -55,6 +59,7 @@ export default function Timer() {
     }
   }
 
+  //Function to generate the displayed timer value in human readable format
   function timerDisplayGeneration(remainingSeconds) {
     remainingMinutes =
       manageTimeConversion(remainingSeconds, "/") +
@@ -64,9 +69,8 @@ export default function Timer() {
     return <TimerDisplay remainingTime={remainingMinutes}></TimerDisplay>;
   }
 
+  //Function set up to be used dynamically, predicting the use of multiple toasts in the future
   function invokeModal(type) {
-    //Function set up to be used dynamically, predicting the use of multiple toasts in the future
-
     switch (type) {
       case "timercompletion":
         const notifyCompetion = () =>
@@ -80,6 +84,7 @@ export default function Timer() {
     }
   }
 
+  //Function to manage every action during the timer completion
   function timerComplete() {
     if (isTimerPlaying) {
       playBell();
@@ -88,37 +93,32 @@ export default function Timer() {
     }
   }
 
+  //Function to calculate the size of the timer based on the innerWidth property of the window since the external timer component doesn't have a responsiveness function
   function calculateSize() {
-    // console.log(window.innerWidth);
     let timerSize = 0;
 
     if (window.innerWidth < 500) {
       timerSize = window.innerWidth - (window.innerWidth * 30) / 100;
-      // console.log(timerSize);
       return timerSize;
     }
 
     if (window.innerWidth > 500 && window.innerWidth < 1000) {
       timerSize = window.innerWidth - (window.innerWidth * 70) / 100;
-      // console.log(timerSize);
       return timerSize;
     }
 
     if (window.innerWidth > 1000 && window.innerWidth < 1400) {
       timerSize = window.innerWidth - (window.innerWidth * 75) / 100;
-      // console.log(timerSize);
       return timerSize;
     }
 
     if (window.innerWidth > 1400 && window.innerWidth < 1900) {
       timerSize = window.innerWidth - (window.innerWidth * 80) / 100;
-      // console.log(timerSize);
       return timerSize;
     }
 
     if (window.innerWidth > 1900) {
       timerSize = window.innerWidth - (window.innerWidth * 85) / 100;
-      // console.log(timerSize);
       return timerSize;
     }
   }
@@ -134,6 +134,7 @@ export default function Timer() {
           <CountdownCircleTimer
             isPlaying={isTimerPlaying}
             duration={timerAmount}
+            // Fading Colors
             colors={["#3c979f", "#73b3b2", "#aecfd0", "#bed9dd", "#deebec"]}
             colorsTime={timerSectors}
             size={calculateSize()}

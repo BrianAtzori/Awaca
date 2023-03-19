@@ -1,6 +1,8 @@
 import React from "react";
 import nextId from "react-id-generator";
 
+//Receive an article from the API as an array of paragraph and it renders each paragraph to create an article
+
 export default function Article({ text }) {
   if (text) {
     return (
