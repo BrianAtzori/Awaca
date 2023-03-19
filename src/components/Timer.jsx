@@ -139,6 +139,7 @@ export default function Timer() {
             colorsTime={timerSectors}
             size={calculateSize()}
             onComplete={() => {
+              //On complete function has a weird issue reported even on Github that triggers the onComplete function every render
               timerComplete();
               return { shouldRepeat: true };
             }}
