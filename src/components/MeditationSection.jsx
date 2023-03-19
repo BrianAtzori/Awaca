@@ -4,6 +4,7 @@ import Hero from "./Hero";
 import Timer from "./Timer";
 import Spotify from "./Spotify";
 import Footer from "./Footer";
+import { Fade } from "react-awesome-reveal";
 
 //Here with props/state i'll have a dynimically generated quote from the CMS or from the API
 //Here with props/state i'll have a dynamically generated background image or video from the CMS
@@ -24,12 +25,10 @@ import Footer from "./Footer";
 export default function Meditation() {
   return (
     <>
-      <section className="mt-96 mb-40 gap-24 container mx-auto flex flex-col p-10 sm:flex-row md:w-11/12 lg:pt-24 xl:pt-28 2xl:mt-[30vh] 2xl:w-full">
-        <Timer></Timer>
+      <section className="container mx-auto mt-96 mb-40 flex flex-col gap-24 p-10 sm:flex-row md:w-11/12 lg:pt-24 xl:pt-28 2xl:mt-[30vh] 2xl:w-full">
+          <Timer></Timer>
         <Spotify></Spotify>
       </section>
     </>
   );
 }
-
-

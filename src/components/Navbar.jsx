@@ -11,7 +11,7 @@ export default function Navbar() {
   const [isOpen, setOpen] = useState(false);
 
   return (
-    <header className=" bg-palette-color-aliceblue font-lato shadow-lg">
+    <header className=" bg-palette-color-aliceblue font-lato shadow-lg z-50">
       <nav className="mx-auto flex w-11/12 items-center justify-between">
         <div>
           <img src={awacaLogo} alt="awaca_logo" className="w-20 2xl:w-32"></img>
@@ -20,7 +20,7 @@ export default function Navbar() {
           className={
             isOpen === true
               ? "item-center absolute left-0 flex h-fit pt-80 w-full md:static"
-              : "item-center absolute left-0 top-[-100%] flex min-h-fit min-h-[60vh] w-full md:static"
+              : "item-center absolute left-0 top-[-100%] flex min-h-fit w-full md:static "
           }
         >
           <ul className="flex w-full text-center h-fit flex-col bg-palette-color-aliceblue p-6 text-[#0c4a6e] md:flex-row md:items-center md:gap-4 text-xl 2xl:text-3xl">

@@ -8,7 +8,8 @@ import TimerDisplay from "./TimerDisplay";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
 import useSound from "use-sound";
 import bellSFX from "../assets/sounds/bell_sfx.mp3";
-import "../styles/timer.scss"
+import "../styles/timer.scss";
+import { Fade } from "react-awesome-reveal";
 
 // https://www.npmjs.com/package/react-countdown-circle-timer
 // https://www.npmjs.com/package/react-confetti
@@ -128,21 +129,24 @@ export default function Timer() {
         Use the buttons to select the amount of minutes you want to spend
         meditating:
       </h2>
-      <div className="mx-auto flex w-full justify-center">
-        <CountdownCircleTimer
-          isPlaying={isTimerPlaying}
-          duration={timerAmount}
-          colors={["#3c979f","#73b3b2","#aecfd0","#bed9dd","#deebec"]}
-          colorsTime={timerSectors}
-          size={calculateSize()}
-          onComplete={() => {
-            timerComplete();
-            return { shouldRepeat: true };
-          }}
-        >
-          {({ remainingTime }) => timerDisplayGeneration(remainingTime)}
-        </CountdownCircleTimer>
-      </div>
+      <Fade direction="left">
+        <div className="mx-auto flex w-full justify-center">
+          <CountdownCircleTimer
+            isPlaying={isTimerPlaying}
+            duration={timerAmount}
+            colors={["#3c979f", "#73b3b2", "#aecfd0", "#bed9dd", "#deebec"]}
+            colorsTime={timerSectors}
+            size={calculateSize()}
+            onComplete={() => {
+              timerComplete();
+              return { shouldRepeat: true };
+            }}
+          >
+            {({ remainingTime }) => timerDisplayGeneration(remainingTime)}
+          </CountdownCircleTimer>
+        </div>
+      </Fade>
+
       <TimerButtons
         buttonAction={isTimerPlaying ? "PAUSE" : "START"}
       ></TimerButtons>
