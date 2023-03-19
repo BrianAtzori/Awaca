@@ -28,6 +28,7 @@ export const timerSlice = createSlice({
       }
     },
     resetTimer: (state) => {
+      //On complete function has a weird issue reported even on Github that triggers the onComplete function every render
       if (state.isPlaying) {
         state.value = 0;
         state.isPlaying = false;
